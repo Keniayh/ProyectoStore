@@ -1,11 +1,14 @@
 package com.store.app_store.domian.entity;
 
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,6 +24,7 @@ public class Categoria {
     @Column
     private boolean estado;
 
-    @ManyToOne
-    private Producto productos;
+    @JsonIgnore
+    @OneToMany(mappedBy = "categorias")
+    private List<Producto> productos;
 }
