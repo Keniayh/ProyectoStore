@@ -33,5 +33,5 @@ public class Producto {
     private String estado;
 
     @ManyToOne
-    private Categoria categoria;
+    private Categoria categorias;
 }
